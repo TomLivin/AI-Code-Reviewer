@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="NetArchTest.Rules" />
+  </ItemGroup>
+
+  <!-- References every production project on purpose: these tests load the
+       assemblies and assert the dependency graph is what the ADRs say it is. -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AiCodeReview.Domain\AiCodeReview.Domain.csproj" />
+    <ProjectReference Include="..\..\src\AiCodeReview.Application\AiCodeReview.Application.csproj" />
+    <ProjectReference Include="..\..\src\AiCodeReview.Infrastructure\AiCodeReview.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\AiCodeReview.Api\AiCodeReview.Api.csproj" />
+    <ProjectReference Include="..\..\src\AiCodeReview.Worker\AiCodeReview.Worker.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="Shouldly" />
+  </ItemGroup>
+
+</Project>

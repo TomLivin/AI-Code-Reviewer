@@ -1,0 +1,44 @@
+## .NET
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+*.user
+*.suo
+*.userprefs
+project.lock.json
+.vs/
+.vscode/
+.idea/
+*.swp
+
+## Test / coverage
+[Tt]est[Rr]esult*/
+coverage*.json
+coverage*.xml
+coverage*.info
+*.coverage
+*.trx
+
+## Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-error.log*
+
+## Secrets — never commit these
+appsettings.Development.local.json
+appsettings.*.Local.json
+*.env
+.env
+.env.*
+!.env.example
+secrets.json
+*.pfx
+*.p12
+
+## OS
+.DS_Store
+Thumbs.db

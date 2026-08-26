@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- The Domain deliberately references nothing. Any PackageReference added
+       here is an architecture smell; ArchitectureTests enforces this. -->
+
+</Project>

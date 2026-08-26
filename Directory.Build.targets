@@ -1,0 +1,12 @@
+<Project>
+
+  <!-- Test projects opt out of the documentation/packability defaults and gain
+       the shared test tooling. Keeping this in one place prevents each test
+       project from drifting to a different xUnit or coverage version. -->
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+</Project>

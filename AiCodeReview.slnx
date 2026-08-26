@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AiCodeReview.Api/AiCodeReview.Api.csproj" />
+    <Project Path="src/AiCodeReview.Application/AiCodeReview.Application.csproj" />
+    <Project Path="src/AiCodeReview.Domain/AiCodeReview.Domain.csproj" />
+    <Project Path="src/AiCodeReview.Infrastructure/AiCodeReview.Infrastructure.csproj" />
+    <Project Path="src/AiCodeReview.Worker/AiCodeReview.Worker.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AiCodeReview.ArchitectureTests/AiCodeReview.ArchitectureTests.csproj" />
+    <Project Path="tests/AiCodeReview.UnitTests/AiCodeReview.UnitTests.csproj" />
+  </Folder>
+</Solution>

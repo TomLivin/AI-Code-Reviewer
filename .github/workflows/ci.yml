@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      # Warnings are errors and NuGet audit is on, so a newly disclosed
+      # vulnerability in a transitive package fails this step rather than
+      # shipping quietly.
+      - name: Restore
+        run: dotnet restore AiCodeReview.slnx
+
+      - name: Build
+        run: dotnet build AiCodeReview.slnx --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test --solution AiCodeReview.slnx --no-build --configuration Release
