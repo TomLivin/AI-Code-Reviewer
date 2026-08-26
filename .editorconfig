@@ -77,3 +77,12 @@ dotnet_diagnostic.IDE0055.severity = suggestion # formatting: don't fail builds 
 [tests/**/*.cs]
 dotnet_diagnostic.CA1707.severity = none       # underscores in test method names are idiomatic
 dotnet_diagnostic.CA5394.severity = none
+dotnet_diagnostic.CA1711.severity = none       # xUnit collection classes are named ...Collection by convention
+
+# EF Core writes these files; they are regenerated on every schema change and
+# are not ours to style. Marking them generated keeps analyzer findings (such as
+# CA1861 on the column-name arrays EF emits) from failing the build, without
+# weakening analysis anywhere we actually write code.
+[**/Migrations/*.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none

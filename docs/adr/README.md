@@ -14,3 +14,5 @@ the old one, so the reasoning history stays intact.
 | [006](006-github-as-sole-identity-provider.md) | GitHub as the sole identity provider | Accepted |
 | [007](007-cqrs-without-a-mediator-library.md) | CQRS without a mediator library | Accepted |
 | [008](008-deterministic-risk-scoring.md) | Deterministic risk scoring; the model never sets the score | Accepted |
+| [009](009-review-run-is-the-review.md) | A review run is the review; no separate review aggregate | Accepted |
+| [010](010-persistence-port-exposes-dbsets.md) | The persistence port exposes DbSets, not repositories | Accepted |

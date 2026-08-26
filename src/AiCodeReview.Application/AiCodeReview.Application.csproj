@@ -3,6 +3,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <!-- EF Core, but never a provider. Application composes queries; only
+         Infrastructure knows they run on PostgreSQL. Enforced by an
+         architecture test. See ADR-010. -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
 
   <ItemGroup>

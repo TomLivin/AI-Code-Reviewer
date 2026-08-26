@@ -95,4 +95,25 @@ public sealed class LayerDependencyTests
             workerResult,
             "The Worker must not depend on the API. They share Application, not each other."));
     }
+
+    [Fact]
+    public void Application_should_not_depend_on_a_database_provider()
+    {
+        // Application composes queries with EF Core, which is a deliberate
+        // trade-off recorded in ADR-010. Knowing the *provider* is a different
+        // matter: that would make the choice of PostgreSQL impossible to change
+        // without editing use cases.
+        ArchTestResult result = Types.InAssembly(ArchitectureRules.ApplicationAssembly)
+            .ShouldNot()
+            .HaveDependencyOnAny(
+                "Npgsql",
+                "Microsoft.EntityFrameworkCore.SqlServer",
+                "Microsoft.EntityFrameworkCore.Sqlite",
+                "Microsoft.EntityFrameworkCore.Cosmos")
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(ArchitectureRules.Describe(
+            result,
+            "Application may know EF Core, but never which database is behind it."));
+    }
 }
