@@ -16,10 +16,7 @@ public sealed class WorkerHeartbeatService(
     {
         TimeSpan interval = options.Value.HeartbeatInterval;
 
-        logger.LogInformation(
-            "{Application} started. Heartbeat interval {IntervalSeconds}s.",
-            WorkerConstants.ApplicationName,
-            interval.TotalSeconds);
+        logger.WorkerStarted(WorkerConstants.ApplicationName, interval.TotalSeconds);
 
         using var timer = new PeriodicTimer(interval, timeProvider);
 
@@ -27,12 +24,12 @@ public sealed class WorkerHeartbeatService(
         {
             while (await timer.WaitForNextTickAsync(stoppingToken))
             {
-                logger.LogDebug("Heartbeat.");
+                logger.Heartbeat();
             }
         }
         catch (OperationCanceledException)
         {
-            logger.LogInformation("{Application} shutting down.", WorkerConstants.ApplicationName);
+            logger.WorkerStopping(WorkerConstants.ApplicationName);
         }
     }
 }

@@ -67,7 +67,7 @@ dotnet_naming_style.pascal_style.capitalization = pascal_case
 
 # --- Correctness rules promoted to build errors ---------------------------
 dotnet_diagnostic.CA2007.severity = none       # ConfigureAwait: not needed in ASP.NET Core
-dotnet_diagnostic.CA1848.severity = none       # LoggerMessage source-gen: too noisy this early
+dotnet_diagnostic.CA1848.severity = none       # LoggerMessage on hot paths only, not every log call
 dotnet_diagnostic.CA1515.severity = none       # public types in apps are fine
 dotnet_diagnostic.CA2016.severity = error      # forward CancellationToken
 dotnet_diagnostic.CA1062.severity = none       # nullable reference types cover this
